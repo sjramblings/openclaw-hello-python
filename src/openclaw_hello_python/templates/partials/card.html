@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-title">{{ card.title }}</div>
+  <form hx-post="/cards/{{ card.id }}/edit" hx-target="#board" hx-swap="outerHTML">
+    <input type="text" name="title" value="{{ card.title }}" />
+    <button type="submit" class="secondary">Rename</button>
+  </form>
+  <div class="actions">
+    <form hx-post="/cards/{{ card.id }}/shift" hx-target="#board" hx-swap="outerHTML">
+      <input type="hidden" name="direction" value="up" />
+      <button type="submit" class="secondary">Up</button>
+    </form>
+    <form hx-post="/cards/{{ card.id }}/shift" hx-target="#board" hx-swap="outerHTML">
+      <input type="hidden" name="direction" value="down" />
+      <button type="submit" class="secondary">Down</button>
+    </form>
+    <form hx-post="/cards/{{ card.id }}/move" hx-target="#board" hx-swap="outerHTML">
+      <input type="hidden" name="direction" value="left" />
+      <button type="submit" class="secondary">Left</button>
+    </form>
+    <form hx-post="/cards/{{ card.id }}/move" hx-target="#board" hx-swap="outerHTML">
+      <input type="hidden" name="direction" value="right" />
+      <button type="submit" class="secondary">Right</button>
+    </form>
+    <form hx-post="/cards/{{ card.id }}/delete" hx-target="#board" hx-swap="outerHTML">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</div>
